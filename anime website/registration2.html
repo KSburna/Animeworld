@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="Anime.css">
+</head>
+<body>
+
+    <header>
+        <div class=“logo”>
+          <h1>Anime Store</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="AnimeHomePage.html">Home</a></li>
+            <li><a href="Booksets.html">Products</a></li>
+            <li><a href="Login.html">Login/Register</a></li>
+            <li><a href=“#”>Cart</a></li>
+          </ul>
+        </nav>
+      </header>
+<div class="registration">
+<form id="registrationForm">
+  <input id="KS" type="text" id="username" placeholder="Username">
+  <input id="KS" type="email" id="email" placeholder="Email">
+  <input id="Password" type="password" id="password" placeholder="Password">
+  <input id="confirmPassword" type="password" id="confirmPassword" placeholder="Confirm Password">
+  <button type="submit">Register</button>
+</form>
+</div>
+
+<div id="errorMessages"></div>
+
+<script>
+  const form = document.getElementById('registrationForm');
+  const errorMessages = document.getElementById('errorMessages');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Form validation
+    const username = document.getElementById('KS').value;
+    const email = document.getElementById('KS').value;
+    const password = document.getElementById('KS').value;
+    const confirmPassword = document.getElementById('KS').value;
+
+    if (username === '' || email === '' || password === '' || confirmPassword === '') {
+      errorMessages.innerText = 'Please fill in all fields.';
+    } else if (password !== confirmPassword) {
+      errorMessages.innerText = 'Passwords do not match.';
+    } else {
+      // Perform further actions like sending data to a server for registration
+      // Display success message or redirect to another page
+      errorMessages.innerText = 'Registration successful!';
+    }
+  });
+</script>
+
+</body>
+</html>
+

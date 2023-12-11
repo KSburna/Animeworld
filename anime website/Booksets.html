@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="Anime.css">
+</head>
+
+
+<body class="productbackground">
+  
+  <header>
+   
+      <h1>Anime Store</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="AnimeHomePage.html">Home</a></li>
+        <li><a href="Login.html">Login/Register</a></li>
+        <li><a href="Cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <br><br><br><br><br>
+  
+  <style>
+  <body>
+    {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2{
+        color: white;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      height: 400%;
+      border: 8px solid #f97400;
+      border-radius: 10px;
+    }
+  
+    td {
+      padding: 20px;
+      text-align: center;
+      border: 5px solid #f97400;
+      transition: background-color 0.3s ease;
+      font-size: 20px;
+      font-weight: bold;
+      color: #f97400;
+    }
+  
+    td a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+  
+    td:hover {
+      background-color: #636262;
+      cursor: pointer;
+    }
+  </style>
+  </head>
+  <body>
+  
+  <main>
+    <table>
+        <tr>
+          <td>Booksets</td>
+          <td>Collectibles</td>
+          <td>Animewear</td>
+        </tr>
+        <tr>
+          <td><button id="submit" type=“submit”>Add to cart</button><h2>20 Euro</h2><br><p>One Punch Man boxet 1-15</p><br><br>
+            <img src="IMAGE/one punch.jpg" alt=“Anime 1” class=“anime-image”></td>
+          <td><button id="submit" type=“submit”>Add to cart</button><h2>25 Euro</h2><br><p></p><br><img src="IMAGE/kakashi.jpg" alt=“Anime 1” class=“anime-image”></td>
+          <td><button id="submit" type=“submit”>Add to cart</button><h2>30 Euro</h2><br><img src="IMAGE/Toman.jpg" alt=“Anime 1” class=“anime-image”></td>
+        </tr>
+        <tr>
+            <td><button id="submit" type=“submit”>Add to cart</button><br><img src="/IMAGE/my hero book set.jpg" alt=""><h2>20 Euro</h2><br><p>One Punch Man boxet 1-15</p><br><br></td>
+            <td><button id="submit" type=“submit”>Add to cart</button><br><img src="/IMAGE/mori.jpg" alt=""><h2>20 Euro</h2><br><p>One Punch Man boxet 1-15</p><br><br></td>
+            <td><button id="submit" type=“submit”>Add to cart</button><br><img src="/IMAGE/Minato.jpg" alt=""><h2>20 Euro</h2><br><p>One Punch Man boxet 1-15</p><br><br></td>
+          </tr>
+           <tr>
+          <td><button id="submit" type=“submit”>Add to cart</button><br><img src="IMAGE/naruto boxset.jpg" alt=“Anime 1” class=“anime-image”><h2>20 Euro</h2><br><p>One Punch Man boxet 1-15</p><br><br></td>
+          <td><button id="submit" type=“submit”>Add to cart</button><br><img src="IMAGE/luffy.jpg" alt=“Anime 1” class=“anime-image”><h2>20 Euro</h2><br><p>One Punch Man boxet 1-15</p><br><br></td>
+          <td><button id="submit" type=“submit”>Add to cart</button><br><img src="IMAGE/kimono.jpg" alt=“Anime 1” class=“anime-image”><h2>20 Euro</h2><br><p>One Punch Man boxet 1-15</p><br><br></td>
+        </tr>
+        
+        <!-- Add more rows and cells as needed -->
+      </table>
+     
+    </main>
+    <script>
+      let cartItems = [];
+    
+      function addItem(itemName, price) {
+        const existingItem = cartItems.find(item => item.name === itemName);
+    
+        if (existingItem) {
+          existingItem.quantity++;
+        } else {
+          cartItems.push({ name: itemName, price: price, quantity: 1 });
+        }
+    
+        displayCart();
+      }
+    
+      function displayCart() {
+        const cartItemsList = document.getElementById('cartItems');
+        const totalPriceDisplay = document.getElementById('totalPrice');
+    
+        cartItemsList.innerHTML = '';
+        let totalPrice = 0;
+    
+        cartItems.forEach(item => {
+          const listItem = document.createElement('li');
+          const incrementButton = document.createElement('button');
+          const decrementButton = document.createElement('button');
+    
+          listItem.innerText = '';
+    
+          incrementButton.textContent = '+';
+          incrementButton.onclick = () => {
+            item.quantity++;
+            displayCart();
+          };
+    
+          decrementButton.textContent = '-';
+          decrementButton.onclick = () => {
+            if (item.quantity > 1) {
+              item.quantity--;
+              displayCart();
+            }
+          };
+    
+          listItem.appendChild(incrementButton);
+          listItem.appendChild(decrementButton);
+          cartItemsList.appendChild(listItem);
+          totalPrice += item.price * item.quantity;
+        });
+    
+        totalPriceDisplay.textContent = totalPrice;
+      }
+    
+      function checkout() {
+        alert('Checkout successful!');
+        cartItems = [];
+        displayCart();
+      }
+    </script>
+    </body>
+    </html>
+ 

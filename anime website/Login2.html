@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="Anime.css">
+</head>
+<body class="loginbackground">
+    <header>
+        <div class=“logo”>
+          <h1>Anime Store</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="AnimeHomePage.html">Home</a></li>
+        <li><a href="cart2.html">Products</a></li>
+        <li><a href="Login2.html">Login/Register</a></li>
+          </ul>
+        </nav>
+      </header>
+<!-- Registration form -->
+<form id="registrationForm">
+  <input type="text" id="regUsername" placeholder="Username">
+  <input type="email" id="regEmail" placeholder="Email">
+  <input type="password" id="regPassword" placeholder="Password">
+  <input type="password" id="regConfirmPassword" placeholder="Confirm Password">
+  <button type="button" onclick="registerUser()">Register</button>
+</form>
+
+<!-- Login form -->
+<form id="loginForm">
+  <input type="text" id="loginUsername" placeholder="Username">
+  <input type="password" id="loginPassword" placeholder="Password">
+  <button type="button" onclick="loginUser()">Login</button>
+</form>
+
+<div id="errorMessages"></div>
+
+<script src="Login.js"></script>
+
+</body>
+</html>
